@@ -5,9 +5,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 // import Campuses from "./Campuses";
 // import Students from "./Students";
-import { Navbar, Campuses, Students } from "./";
+import { Campuses, Students } from "./";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  const campuses = useSelector((state) => state.campuses);
+  const students = useSelector((state) => state.students);
+
+  useEffect(() => {
+    dispatch(fetchCampusesAsync());
+    dispatch(fetchStudentsAsync());
+  }, []);
+
   return (
     <div id="main">
       <div className="column container">
