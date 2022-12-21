@@ -1,5 +1,7 @@
-const port = process.env.PORT || 3000;
-const app = require('./campus');
+const router = require('express').Router();
+
+router.use('/campuses', require('./campus'));
+router.use('/students', require('./student'));
 
 
-app.listen(port, ()=> console.log(`listening on port ${port}`));
+module.exports = router;

@@ -1,19 +1,10 @@
-const express = require('express')
-const path = require('path')
-const cors = require('cors')
-const volleyball = require('volleyball')
-const app = express()
+const router = require('express').Router()
+const { Campus } = require('../db')
 
-// static middleware
-app.use(express.static(path.join(__dirname, '..','public')))
-
-app.use(cors())
-app.use(volleyball)
-
-app.get('api/campuses', async (req, res, next) => {
+router.get('api/campuses', async (req, res, next) => {
   try{
   const campuses = await Campus.findAll({
-    attributes: ['id', 'name', 'email', 'campusId']
+    attributes: ['id', 'name', 'imageUrl', 'address', 'description']
   })
   res.json(campuses)
 }catch(err){
@@ -21,7 +12,7 @@ app.get('api/campuses', async (req, res, next) => {
 }
 })
 
-app.get('api/campuses/:id', async (req, res, next) => {
+router.get('api/campuses/:id', async (req, res, next) => {
   try{
   const campus = await Campus.findById(req.params.id)
   res.json(campus)
@@ -30,9 +21,9 @@ app.get('api/campuses/:id', async (req, res, next) => {
 }
 })
 
-app.use("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
-});
+// router.get('/api/campuses/numberOfStudents', async (req, res, next) => {
+//   try{
 
-module.exports = app;
+
+module.exports = router;
 

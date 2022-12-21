@@ -19,6 +19,15 @@ app.use((req, res, next) => {
   next(err)
 })
 
+//use this instead of above?
+// app.use((req, res, next) => {
+//   if (path.extname(req.path).length > 0) {
+//     res.status(404).end()
+//   } else {
+//     next()
+//   }
+// })
+
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public/index.html'))
 })
