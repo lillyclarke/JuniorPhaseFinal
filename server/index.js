@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const volleyball = require('volleyball');
 const app = express();
-module.exports = app;
+
 
 app.use(volleyball)
 
@@ -38,5 +38,5 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send(err.message || 'Internal server error.')
 })
 
-
+module.exports = app;
 

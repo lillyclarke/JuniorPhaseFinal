@@ -3,9 +3,9 @@ import { fetchCampusesAsync } from "../store/slices/campusSlice";
 import { fetchStudentsAsync } from "../store/slices/studentSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
-// import Campuses from "./Campuses";
-// import Students from "./Students";
-import { Campuses, Students } from "./";
+import Campuses from "./Campuses";
+import Students from "./Students";
+// import { Campuses, Students } from "./";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const App = () => {
     dispatch(fetchCampusesAsync());
     dispatch(fetchStudentsAsync());
   }, []);
+  //lines 11-19??
 
   return (
     <div id="main">
