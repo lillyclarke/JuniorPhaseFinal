@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import Campuses from "./Campuses";
 import Students from "./Students";
-// import { Campuses, Students } from "./";
+// import Navbar from "./Navbar";
+// import { Navbar, Campuses, Students } from "./";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const App = () => {
         <div id="header">
           <h1>Acme Schools</h1>
         </div>
-        <Navbar />
+        {/* <Navbar /> */}
           <Routes>
             <Route path="/campuses" element={<Campuses />} />
             <Route path="/campuses/:id" element={<Campuses />} />
