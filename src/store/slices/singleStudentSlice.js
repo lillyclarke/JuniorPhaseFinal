@@ -34,5 +34,3 @@ export const selectSingleStudent = (state) => {
 };
 
 export default singleStudentSlice.reducer;
-
-

@@ -26,4 +26,5 @@ const campusSlice = createSlice({
 export const selectCampuses = (state) => {
   return state.campuses;
 };
+
 export default campusSlice.reducer;

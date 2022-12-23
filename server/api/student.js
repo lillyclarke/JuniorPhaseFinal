@@ -4,7 +4,7 @@ const { Student } = require('../db')
 router.get('/', async (req, res, next) => {
   try{
   const students = await Student.findAll()
-  console.log({students})
+  console.log({students}, "coming from student route file")
   res.json(students)
 }catch(err){
   next(err);

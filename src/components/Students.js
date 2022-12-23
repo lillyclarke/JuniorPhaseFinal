@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { fetchStudentsAsync, selectStudents } from '../store/slices/studentSlice';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
 import { useDispatch } from 'react-redux'
 
 
@@ -11,12 +10,8 @@ const Students = () => {
   const students = useSelector(selectStudents);
 
   useEffect(() => {
-    // axios.get('/api/students')
-    //   .then(res => res.data)
-    //   .then(students => {
-        console.log({students})
-        dispatch(fetchStudentsAsync());
-      // .catch(err => console.log(err));
+    console.log({students})
+    dispatch(fetchStudentsAsync());
   }, []);
 
   return (

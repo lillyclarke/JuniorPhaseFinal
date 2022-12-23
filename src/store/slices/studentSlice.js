@@ -26,4 +26,5 @@ const studentSlice = createSlice({
 export const selectStudents = (state) => {
   return state.students;
 };
+
 export default studentSlice.reducer;
