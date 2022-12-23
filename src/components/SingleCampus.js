@@ -11,14 +11,19 @@ const SingleCampus = () => {
   const dispatch = useDispatch();
   const { campusId } = useParams();
 
-  const campus = useSelector(selectSingleCampus);
   const SingleCampus = useSelector(selectSingleCampus);
   console.log(SingleCampus, "this is from single campus")
+  const { name, imageUrl, address, description } = SingleCampus;
 
   const creatingACampus = (e) => {
     e.preventDefault();
     dispatch(creatingACampus({ name, imageUrl, address, description }));
   };
+
+  let sortBy = (e) => {
+    e.preventDefault();
+    dispatch(sortBy(e.target.value));
+  }
 
   const unRegisterAStudent = (studentId) => {
     dispatch(unRegisterAStudent(studentId));
@@ -28,29 +33,17 @@ const SingleCampus = () => {
     dispatch(fetchingSingleCampus(campusId));
   }, [dispatch]);
 
-// return (
-//   <div key={campus.id}>
-//     <h1>{campus.name}</h1>
-//     <img src={campus.imageUrl} />
-//     <p>{campus.address}</p>
-//     <p>{campus.description}</p>
-//     {campus.students?.map(student => {
-//       return (
-//         <div key={student.id}>
-//           <h1><Link to={`/students/${student.id}`}>{firstName} {lastName}</Link></h1>
-//           <p>{email}</p>
-//           <p>{gpa}</p>
-//           <button onClick={()=>unRegisterAStudent(student.id)}>Unregister</button>
-//         </div>
+  useEffect(() => {
+    if (sort === "empty") {
+      dispatch(showEmptyCampuses());
+    } if (sort === "all") {
+      dispatch(showAllCampuses());
+    } if (sort === "#students") {
+      dispatch(showCampusesByStudentCount());
+    }
+  }, [sort])
 
 
-//       )
-//     })}
-//   </div>
-// );
-
-//   };
-// };
   return (
     <div>
       <form onSubmit={creatingACampus}>
@@ -60,7 +53,24 @@ const SingleCampus = () => {
         <input type="text" placeholder="Campus Description" value={description} onChange={(e) => setDescription(e.target.value)} />
         <button type="submit">Add A Campus</button>
       </form>
-
+      <select value={sort} onChange={sortBy}>
+        <option value="empty">Show Empty Campuses</option>
+        <option value="all">Show All Campuses</option>
+        <option value="#students">Sort By Number of Students</option>
+      </select>
+      {campuses.map(campus => {
+        return (
+          <div key={campus.id}>
+            <h1>{campus.name}</h1>
+            <img src={campus.imageUrl} />
+            <p>{campus.address}</p>
+            <p>{campus.description}</p>
+            <Link to={`/campuses/${campus.id}`}>View This Campus</Link>
+            <button onClick={()=>deleteACampus(campus.id)}>X</button>
+          </div>
+        )
+      }
+    )}
     </div>
   )
 };
