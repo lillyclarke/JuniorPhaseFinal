@@ -6,13 +6,11 @@ import {
   fetchingSingleCampus,
 } from "../store/slices/singleCampusSlice";
 
-
 const SingleCampus = () => {
   const dispatch = useDispatch();
   const { campusId } = useParams();
 
   const SingleCampus = useSelector(selectSingleCampus);
-  console.log(SingleCampus, "this is from single campus")
   const { name, imageUrl, address, description } = SingleCampus;
 
   const creatingACampus = (e) => {
@@ -41,8 +39,7 @@ const SingleCampus = () => {
     } if (sort === "#students") {
       dispatch(showCampusesByStudentCount());
     }
-  }, [sort])
-
+  })
 
   return (
     <div>
@@ -53,7 +50,7 @@ const SingleCampus = () => {
         <input type="text" placeholder="Campus Description" value={description} onChange={(e) => setDescription(e.target.value)} />
         <button type="submit">Add A Campus</button>
       </form>
-      <select value={sort} onChange={sortBy}>
+      <select value="sort" onChange={sortBy}>
         <option value="empty">Show Empty Campuses</option>
         <option value="all">Show All Campuses</option>
         <option value="#students">Sort By Number of Students</option>

@@ -12,7 +12,6 @@ const SingleStudent = () => {
   // const { campusId } = useParams();
 
   const SingleStudent = useSelector(selectSingleStudent);
-  console.log(SingleStudent, "this is from single student");
   const { firstName, lastName, email, gpa, campusId } = SingleStudent;
 
   const createAStudent = (e) => {
