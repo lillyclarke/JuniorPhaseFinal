@@ -8,7 +8,6 @@ import Campuses from "./Campuses";
 import SingleStudent from "./SingleStudent";
 import SingleCampus from "./SingleCampus";
 // import { Navbar } from "./Navbar";
-// import { Campuses, Students } from "./";
 import { useEffect } from "react";
 
 

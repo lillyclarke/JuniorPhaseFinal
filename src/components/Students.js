@@ -30,7 +30,7 @@ const Students = () => {
       </ul>
     </div>
   );
-}
+};
 
 export default Students;
 
