@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { userParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectSingleStudent,
@@ -9,7 +9,6 @@ import {
 
 const SingleStudent = () => {
   const dispatch = useDispatch();
-  // const { campusId } = useParams();
 
   const SingleStudent = useSelector(selectSingleStudent);
   const { firstName, lastName, email, gpa, campusId } = SingleStudent;

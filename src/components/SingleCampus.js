@@ -5,6 +5,8 @@ import {
   selectSingleCampus,
   fetchingSingleCampus,
 } from "../store/slices/singleCampusSlice";
+import { selectCampuses } from "../store/slices/campusSlice";
+
 
 const SingleCampus = () => {
   const dispatch = useDispatch();
@@ -12,6 +14,7 @@ const SingleCampus = () => {
 
   const SingleCampus = useSelector(selectSingleCampus);
   const { name, imageUrl, address, description } = SingleCampus;
+  const campuses = useSelector(selectCampuses);
 
   const creatingACampus = (e) => {
     e.preventDefault();
@@ -50,7 +53,7 @@ const SingleCampus = () => {
         <input type="text" placeholder="Campus Description" value={description} onChange={(e) => setDescription(e.target.value)} />
         <button type="submit">Add A Campus</button>
       </form>
-      <select value="sort" onChange={sortBy}>
+      <select value={sort} onChange={sortBy}>
         <option value="empty">Show Empty Campuses</option>
         <option value="all">Show All Campuses</option>
         <option value="#students">Sort By Number of Students</option>
