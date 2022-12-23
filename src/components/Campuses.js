@@ -1,18 +1,21 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selectCampuses } from '../store/slices/campusSlice';
+import { fetchCampusesAsync, selectCampuses } from '../store/slices/campusSlice';
 import { Link } from 'react-router-dom';
+// import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
 const Campuses = () => {
+  const dispatch = useDispatch()
   const campuses = useSelector(selectCampuses)
 
   useEffect(() => {
-    axios.get('/api/campuses')
-      .then(res => res.data)
-      .then(campuses => {
-        dispatch(setCampuses(campuses));
-      })
-      .catch(err => console.log(err));
+    // axios.get('/api/campuses')
+    //   .then(res => res.data)
+    //   .then(campuses => {
+        dispatch(fetchCampusesAsync());
+      // })
+      // .catch(err => console.log(err));
   }, []);
 
   return (

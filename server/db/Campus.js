@@ -20,10 +20,10 @@ const Campus = db.define('Campus', {
   },
   address: {
     type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-    },
+    // allowNull: false,
+    // validate: {
+    //   notEmpty: true,
+    // },
   },
   description: {
     type: Sequelize.TEXT,

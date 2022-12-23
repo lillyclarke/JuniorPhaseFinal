@@ -1,21 +1,22 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
-// import { setCampuses } from '../store/slices/campusSlice';
-import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { fetchStudentsAsync, selectStudents } from '../store/slices/studentSlice';
 import { Link } from 'react-router-dom';
+// import axios from 'axios';
+import { useDispatch } from 'react-redux'
+
 
 const Students = () => {
-  const dispatch = useDispatch();
-  const students = useSelector((state) => state.students);
+  const dispatch = useDispatch()
+  const students = useSelector(selectStudents);
 
   useEffect(() => {
-    axios.get('/api/students')
-      .then(res => res.data)
-      .then(students => {
-        dispatch(setStudents(students));
-      })
-      .catch(err => console.log(err));
+    // axios.get('/api/students')
+    //   .then(res => res.data)
+    //   .then(students => {
+        console.log({students})
+        dispatch(fetchStudentsAsync());
+      // .catch(err => console.log(err));
   }, []);
 
   return (
@@ -37,3 +38,4 @@ const Students = () => {
 }
 
 export default Students;
+
