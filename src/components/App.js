@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import { fetchCampusesAsync } from "../store/slices/campusSlice";
@@ -7,9 +7,7 @@ import Students from "./Students";
 import Campuses from "./Campuses";
 import SingleStudent from "./SingleStudent";
 import SingleCampus from "./SingleCampus";
-// import { Navbar } from "./Navbar";
-import { useEffect } from "react";
-
+import Navbar from "./Navbar";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -23,9 +21,9 @@ const App = () => {
     <div id="main">
       <div className="column container">
         <div id="header">
-          <h1>Acme Schools</h1>
+          <h1>Acme Schools and Their Students</h1>
         </div>
-         {/* <Navbar /> */}
+         <Navbar />
           <Routes>
             <Route path="/campuses" element={<Campuses />} />
             <Route path="/campuses/:id" element={<SingleCampus  />} />

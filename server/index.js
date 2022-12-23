@@ -5,7 +5,6 @@ const app = require("./app");
 const seed = require("../bin/seed");
 
 const init = async () => {
-  console.log("seeding");
   await seed();
   app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 };

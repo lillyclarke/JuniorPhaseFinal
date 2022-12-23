@@ -25,7 +25,7 @@ const Student = db.define('Student', {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: 'https://www.fillmurray.com/300/300',
+    defaultValue: 'https://rb.gy/gcltjo',
   },
   gpa: {
     type: Sequelize.FLOAT,

@@ -37,36 +37,36 @@ const seed = async () => {
   const student1 = await Student.create({
     firstName: "Cody",
     lastName: "Pug",
-    email: "codyPug@yaho.com",
+    email: "codyPug@yahoo.com",
     gpa: 3.5,
     campusId: campus1.id,
   });
   const student2 = await Student.create({
     firstName: "Murphy",
     lastName: "Pug",
-    email: "murphyPug",
-    gpa: 3.5,
+    email: "murphyPug@yahoo.com",
+    gpa: 3.8,
     campusId: campus2.id,
   });
   const student3 = await Student.create({
     firstName: "Luna",
     lastName: "Pug",
-    email: "lunaPug",
-    gpa: 3.5,
+    email: "lunaPug@yahoo.com",
+    gpa: 3.2,
     campusId: campus3.id,
   });
   const student4 = await Student.create({
     firstName: "Lola",
     lastName: "Pug",
-    email: "lolaPug",
-    gpa: 3.5,
+    email: "lolaPug@yahoo.com",
+    gpa: 4.0,
     campusId: campus4.id,
   });
   const student5 = await Student.create({
     firstName: "Lucy",
     lastName: "Pug",
-    email: "lucyPug",
-    gpa: 3.5,
+    email: "lucyPug@yahoo.com",
+    gpa: 2.4,
     campusId: campus5.id,
   });
 

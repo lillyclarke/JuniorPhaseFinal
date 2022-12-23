@@ -4,7 +4,6 @@ const { Campus } = require('../db')
 router.get('/', async (req, res, next) => {
   try{
   const campuses = await Campus.findAll()
-  console.log({campuses})
   res.json(campuses)
 }catch(err){
   next(err);
